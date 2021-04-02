@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if edit is defined %}
+        Editar tarea
+    {% else %}
+        Crear tarea
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h1 class="text-center text-primary pt-3">
+            {% if edit is defined %}
+                Editar tarea
+            {% else %}
+                Crear tarea
+            {% endif %}
+        </h1>
+    </div>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form method="POST">
+            <div class="form-group"></div>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+                </form>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock %}

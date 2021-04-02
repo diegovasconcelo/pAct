@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarea: {{task.title}}{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h1 class="text-center text-primary pt-3">Detalles de la tarea</h1>
+
+        <div class="card text-center">
+            <div class="card-header">
+                {{task.user.name}} {{task.user.surname}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{task.title}}</h5>
+                <p class="card-text">{{task.content}}
+                    {% if task.priority=='High' %}
+                        {{'Alta'}}
+                    {% elseif task.priority=='Medium'%}
+                        {{'Media'}}
+                    {% else %}
+                        {{'Baja'}}
+                    {% endif %}
+                    {{task.hours}}Hs
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{ task.createdAt|date('d/m/Y h:m') }}
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8"></div>
+
+    <div class="col-2"></div>
+</div>
+{% endblock %}

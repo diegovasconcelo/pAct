@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h1 class="text-center text-secondary pt-3">Iniciar sesión</h1>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error.messagekey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-4">
+    </div>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <form action="{{ path('login') }}" method="POST">
+            <div class="form-group">
+                <label for="username">Correo</label>
+                <input type="email" class="form-control" id="username" name="_username" value="{{ last_username }}" aria-describedby="emailHelp" required>
+                <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico.</small>
+            </div>
+              <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="_password" required>
+              </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+{% endblock %}
